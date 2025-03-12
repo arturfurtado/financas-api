@@ -1,0 +1,23 @@
+# Dependências
+node_modules/
+
+# Saída da compilação
+dist/
+
+# Arquivos de ambiente
+.env
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Configurações de IDEs e editores
+.vscode/
+.idea/
+
+# Outros arquivos
+*.cache
