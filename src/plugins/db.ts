@@ -1,20 +1,16 @@
-import fp from "fastify-plugin";
-import pg from "pg";
+import pg from 'pg'
+import dotenv from 'dotenv';
 
-const { Pool } = pg;
+dotenv.config();
 
-export default fp(async (fastify) => {
-  const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
+const { Pool } = pg
 
-  fastify.decorate("db", {
-    query: async (text: string, params: any) => { //remove any later
-      const result = await pool.query(text, params);
-      return result.rows;
-    },
-  });
+const pool = new Pool({
+  host: process.env.POSTGRES_HOST || 'localhost',
+  user: process.env.POSTGRES_USER || 'postgres',
+  password: process.env.POSTGRES_PASSWORD || 'postgres',
+  database: process.env.POSTGRES_DB || 'financas_db',
+  port: parseInt(process.env.POSTGRES_PORT || '5433', 10)
 })
+
+export default pool;
