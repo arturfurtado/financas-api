@@ -1,5 +1,6 @@
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinColumn,
   ManyToOne,
@@ -7,26 +8,27 @@ import {
 } from "typeorm";
 import { IsDate } from "class-validator";
 import { UserAccounts } from "./user_accounts";
+import ExtendedBaseEntity from "./base_entity_model";
 
 @Entity()
-export class Transactions {
+export class Transactions extends ExtendedBaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({type: "integer"})
   category_id: number;
 
-  @Column()
+  @Column({type: "int"})
   amount: number; //alterar no futuro
 
-  @Column()
+  @CreateDateColumn({type: "timestamp"})
   @IsDate()
   transaction_date: Date;
 
-  @Column()
+  @Column({type: "varchar"})
   description: string;
 
-  @Column()
+  @Column({type: "varchar"})
   transaction_type: string;
 
   @ManyToOne(() => UserAccounts, (userAccounts) => userAccounts.transactions)

@@ -9,22 +9,23 @@ import {
 } from "typeorm";
 import { User } from "./user";
 import { Transactions } from "./transactions";
+import ExtendedBaseEntity from "./base_entity_model";
 
 @Entity()
-export class UserAccounts {
+export class UserAccounts extends ExtendedBaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({type: "varchar"})
   bank: string;
 
-  @Column()
+  @Column({type: "varchar"})
   account_name: string;
 
-  @Column()
+  @Column({type: "varchar"})
   account_card: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({type: "timestamp"})
   created_at: Date;
 
   @ManyToOne(() => User, (user) => user.userAccounts)

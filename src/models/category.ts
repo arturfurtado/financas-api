@@ -1,15 +1,15 @@
 import { IsDate } from "class-validator";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import ExtendedBaseEntity from "./base_entity_model";
 @Entity()
-export class Category {
+export class Category extends ExtendedBaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({type: "varchar"})
   name: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({type: "timestamp"})
   @IsDate()
   created_at: Date;
 }
