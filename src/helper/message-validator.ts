@@ -1,1 +1,1 @@
-export const sendValidateMessage = (fieldLabel: string): string => `${fieldLabel} nao corresponde aos requisitos`
+export const sendValidateMessage = (fieldLabel: string): string => `${fieldLabel}`
