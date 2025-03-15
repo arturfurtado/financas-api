@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "node ./dist/index",
-    "dev": "nodemon --exec ts-node ./src/index.ts"
+    "start": "tsx ./dist/index",
+    "dev": "tsx ./src/index.ts"
   },
-  "author": "Nikola Lazarov",
+  "author": "Artur Furtado",
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "5.0.2",
