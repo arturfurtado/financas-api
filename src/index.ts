@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { AppDataSource } from "./plugins/db";
+import { AppDataSource } from "./infra/plugins/db";
 import fastify, { FastifyInstance } from "fastify";
 import config from "./config";
 class Application {

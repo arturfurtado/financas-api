@@ -11,7 +11,7 @@ import {
 } from "typeorm";
 import { IsEmail, MaxLength, Matches, Length } from "class-validator";
 import { UserAccounts } from "./user_accounts";
-import { sendValidateMessage } from "../helper/message-validator";
+import { sendValidateMessage } from "../../infra/helper/message-validator";
 import ExtendedBaseEntity from "./base_entity_model";
 import * as bcrypt from "bcrypt";
 @Entity()
